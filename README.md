@@ -6,17 +6,17 @@ Remove the Liquibase lock record from the DATABASECHANGELOG table
 ```yaml
 steps:
 - uses: actions/checkout@v3
-- uses: liquibase-github-actions/release-locks@v4.21.0
+- uses: liquibase-github-actions/release-locks@v4.21.1
   with:
     # The JDBC database connection URL
     # string
     # Required
     url: ""
 
-    # The root changelog
+    # 
     # string
     # Optional
-    changelogFile: ""
+    database: ""
 
     # The default catalog name to use for the database connection
     # string
@@ -43,6 +43,11 @@ steps:
     # Optional
     password: ""
 
+    # 
+    # bool
+    # Optional
+    skipDatabaseStep: ""
+
     # Username to use to connect to the database
     # string
     # Optional
@@ -60,7 +65,7 @@ The liquibase release locks action accepts all valid liquibase global options as
 ```yaml
 steps:
   - uses: actions/checkout@v3
-  - uses: liquibase-github-actions/release-locks@v4.21.0
+  - uses: liquibase-github-actions/release-locks@v4.21.1
     with:
       url: ""
       headless: true

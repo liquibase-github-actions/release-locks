@@ -14,15 +14,16 @@ service ReleaseLocksService {
 
 /* Remove the Liquibase lock record from the DATABASECHANGELOG table */
 message ReleaseLocksRequest {
-  optional string changelog_file = 1; // The root changelog
+  optional string database = 1;
   optional string default_catalog_name = 2; // The default catalog name to use for the database connection
   optional string default_schema_name = 3; // The default schema name to use for the database connection
   optional string driver = 4; // The JDBC driver class
   optional string driver_properties_file = 5; // The JDBC driver properties file
   optional string password = 6; // Password to use to connect to the database
-  string url = 7; // *required* The JDBC database connection URL
-  optional string username = 8; // Username to use to connect to the database
-  liquibase.GlobalOptions global_options = 9;
+  optional bool skip_database_step = 7;
+  string url = 8; // *required* The JDBC database connection URL
+  optional string username = 9; // Username to use to connect to the database
+  liquibase.GlobalOptions global_options = 10;
 }
 
 message Response {

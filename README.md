@@ -1,4 +1,27 @@
 # Liquibase Release Locks Action
+
+⚠️ **VERSION SUPPORT NOTICE**: This action supports Liquibase versions up to 4.x. For Liquibase 5.0+ features, please migrate to [`liquibase/setup-liquibase`](https://github.com/liquibase/setup-liquibase).
+
+## Migration Guide
+
+### Current Approach (Supports Liquibase 4.x)
+```yaml
+- uses: liquibase-github-actions/release-locks@v4.33.0
+  with:
+    # your parameters here
+```
+
+### Recommended for Liquibase 5.0+ Features
+```yaml
+- uses: liquibase/setup-liquibase@v1
+  with:
+    version: '5.0.0'  # Supports latest features
+    edition: 'oss'
+- run: liquibase release-locks # add your parameters as CLI flags
+```
+
+---
+
 Official GitHub Action to run Liquibase Release Locks in your GitHub Action Workflow. For more information on how release locks works visit the [Official Liquibase Documentation](https://docs.liquibase.com/commands/home.html).
 ## Release Locks
 Remove the Liquibase lock record from the DATABASECHANGELOG table
